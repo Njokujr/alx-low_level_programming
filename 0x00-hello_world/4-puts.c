@@ -1,13 +1,12 @@
 #include <stdio.h>
-#include <string.h>
+
 /**
- *main - writes out a string to the stdout
+ *main - print
  *
- *Return: string value of stng
+ *Return: Always 0 (Successful)
  */
 int main(void)
 {
-puts = "\"Programming is like building a multilingual puzzle";
-return (0);
-
+	puts("\"Programming is like building a multilingual puzzle");
+	return (0);
 }
