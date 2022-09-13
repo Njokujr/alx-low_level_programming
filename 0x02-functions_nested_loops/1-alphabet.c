@@ -1,10 +1,9 @@
 #include "main.h"
-
- /**
-  * print_alphabet - prints the english alphabet from a-z.
-  * Description: It prints the alphabet in lowercase followed by a new line
-  * Return: Nothing.
-  */
+/**
+ * print_alphabet - prints the english alphabet from a-z.
+ *
+ * Return: Nothing.
+ */
 void print_alphabet(void)
 
 {
