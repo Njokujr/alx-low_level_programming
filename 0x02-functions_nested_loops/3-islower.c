@@ -1,7 +1,8 @@
 #include "main.h"
 
 /**
- * _islower -  Check main
+ * _islower -  tests if a character is a
+ * lowercase letter from the English alphabet.
  * @c: An input character
  * Description: function uses _putchar function to print
  * alphabet in lowercase 10 times
@@ -9,14 +10,8 @@
  */
 int _islower(int c)
 {
-	char i;
-	int lower = 0
-
-		for (i = 'a'; i <= 'z'; i++)
-		{
-			if (i == c)
-				lower = 1;
-		}
-
-	return (lower);
+	if (c >= 'a' && c <= 'z')
+		return (1);
+	else
+		return (0);
 }
