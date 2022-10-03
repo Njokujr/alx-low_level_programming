@@ -96,7 +96,7 @@ char **strtow(char *str)
 			strings[w][l] = str[index++];
 		strings[w][l] = '\0';
 	}
-	string[w] = NULL;
+	strings[w] = NULL;
 
 	return (strings);
 }
