@@ -2,24 +2,22 @@
 #include <stdio.h>
 
 /**
- * free_listint2 - A function that frees a list and sets head to NULL
- * @head: A pointer to listint_t structure
- * Return: Nothing.
+ * pop_listint - function that deletes the head node of a listint_t linked list
+ * , and returns the head node’s data (n).
+ * @head: A pointer to listint_t structure.
+ * Return: The head node's datafrom deleted element
  */
-
-void free_listint2(listint_t **head)
+int pop_listint(listint_t **head)
 {
-	listint_t *temp;
+	listint_t *new_node;
+	int n;
 
-	if (head == NULL)
-		return;
+	if (*head == NULL)
+		return (0);
 
-	temp = *head;
-	while (*head)
-	{
-		temp = *head;
-		(*head) = (*head)->next;
-		free(temp);
-	}
-	*head = NULL;
+	n = (*head)->n;
+	new_node = (*head)->next;
+	free(*head);
+	*head = new_node;
+	return (n);
 }
