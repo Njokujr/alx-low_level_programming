@@ -1,6 +1,11 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/uio.h>
+#include <unistd.h>
+#include <fcntl.h>
 
 /**
  * append_text_to_file - A Function appends text at the end of a file.
