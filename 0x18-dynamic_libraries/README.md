@@ -24,4 +24,4 @@ Allowed editors: vi, vim, emacs All your scripts will be tested on Ubuntu 20.04 
 #Advanced-tasks
 2. Let's call C functions from Python
 
-3. Code injection: Win the Giga Millions!
+3. Code injection: Win the Giga Millions!!
