@@ -1,65 +1,26 @@
 #!/usr/bin/python3
-"""
-Defines Island  Perimeter function.
-"""
+"""Defines an island perimeter measuring function."""
 
 
 def island_perimeter(grid):
+    """Return the perimiter of an island.
+    The grid represents water by 0 and land by 1.
+    Args:
+        grid (list): A list of list of integers representing an island.
+    Returns:
+        The perimeter of the island defined in grid.
     """
-    Returns the perimeter of the island
-    decribed in grid:
-    + grid is a list of list of integers:
-      - 0 represents a water zone
-      - 1 represents a land zone
-      - One cell is a square with side length 1
-      - Grid cells are connected horizontally/vertically (not diagonally).
-      - Grid is rectangular, width and height don’t exceed 100
-    Approach:
-    Using this simple model that iterate over all items in the grid,
-    e.g. grid = [
-                  [0, 0, 0, 0],
-                  [0, 1, 1, 0],
-                  [0, 1, 0, 0],
-                  [0, 1, 0, 0],
-                  [0, 0, 0, 0]
-                ]
-    Given a return variable `perimeter` set to `0`:
-    Logic: for each items in the grid,for top, bottom, right, or left
-    sides that is not `1` increase the perimeter by `1` unit.
-    Starting with the assumption that width is going to be equal
-    accross all row in the grid.
-    """
+    width = len(grid[0])
+    height = len(grid)
+    edges = 0
+    size = 0
 
-    if not len(grid):  # if grid is empty
-        return
-    y = len(grid)  # height starting from `0`: y_axis
-    x = len(grid[0])  # width starting from `0`: x_axis
-    perimeter = 0
-    for dy in range(y):
-        for dx in range(x):
-            if grid[dy][dx] == 1:  # land ooo!
-                try:
-                    if grid[dy][dx - 1] == 0:  # check to left
-                        perimeter = perimeter + 1
-                except IndexError:
-                    perimeter = perimeter + 1
-
-                try:
-                    if grid[dy][dx + 1] == 0:  # check to right
-                        perimeter = perimeter + 1
-                except IndexError:
-                    perimeter = perimeter + 1
-
-                try:
-                    if grid[dy - 1][dx] == 0:  # check up
-                        perimeter = perimeter + 1
-                except IndexError:
-                    perimeter = perimeter + 1
-
-                try:
-                    if grid[dy + 1][dx] == 0:  # check down
-                        perimeter = perimeter + 1
-                except IndexError:
-                    perimeter = perimeter + 1
-
-    return perimeter
+    for i in range(height):
+        for j in range(width):
+            if grid[i][j] == 1:
+                size += 1
+                if (j > 0 and grid[i][j - 1] == 1):
+                    edges += 1
+                if (i > 0 and grid[i - 1][j] == 1):
+                    edges += 1
+    return size * 4 - edges * 2
