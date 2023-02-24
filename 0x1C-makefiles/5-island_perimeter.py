@@ -6,60 +6,25 @@ Defines Island  Perimeter function.
 
 def island_perimeter(grid):
     """
-    Returns the perimeter of the island
-    decribed in grid:
-    + grid is a list of list of integers:
-      - 0 represents a water zone
-      - 1 represents a land zone
-      - One cell is a square with side length 1
-      - Grid cells are connected horizontally/vertically (not diagonally).
-      - Grid is rectangular, width and height don’t exceed 100
-    Approach:
-    Using this simple model that iterate over all items in the grid,
-    e.g. grid = [
-                  [0, 0, 0, 0],
-                  [0, 1, 1, 0],
-                  [0, 1, 0, 0],
-                  [0, 1, 0, 0],
-                  [0, 0, 0, 0]
-                ]
-    Given a return variable `perimeter` set to `0`:
-    Logic: for each items in the grid,for top, bottom, right, or left
-    sides that is not `1` increase the perimeter by `1` unit.
-    Starting with the assumption that width is going to be equal
-    accross all row in the grid.
+    Calculater the Island's perimeter
+    Parameter:
+        grid (array): An 0's and 1's array that represents an island (1)
+        sourrounded by water (0)
+    Returns:
+        The island's perimeter
     """
-
-    if not len(grid):  # if grid is empty
-        return
-    y = len(grid)  # height starting from `0`: y_axis
-    x = len(grid[0])  # width starting from `0`: x_axis
+    rows = len(grid)
+    cols = len(grid[0])
     perimeter = 0
-    for dy in range(y):
-        for dx in range(x):
-            if grid[dy][dx] == 1:  # land ooo!
-                try:
-                    if grid[dy][dx - 1] == 0:  # check to left
-                        perimeter = perimeter + 1
-                except IndexError:
-                    perimeter = perimeter + 1
-
-                try:
-                    if grid[dy][dx + 1] == 0:  # check to right
-                        perimeter = perimeter + 1
-                except IndexError:
-                    perimeter = perimeter + 1
-
-                try:
-                    if grid[dy - 1][dx] == 0:  # check up
-                        perimeter = perimeter + 1
-                except IndexError:
-                    perimeter = perimeter + 1
-
-                try:
-                    if grid[dy + 1][dx] == 0:  # check down
-                        perimeter = perimeter + 1
-                except IndexError:
-                    perimeter = perimeter + 1
-
+    for i in range(1, rows - 1):
+        for j in range(1, cols - 1):
+            if grid[i][j] == 1:
+                if grid[i - 1][j] == 0:
+                    perimeter += 1
+                if grid[i + 1][j] == 0:
+                    perimeter += 1
+                if grid[i][j - 1] == 0:
+                    perimeter += 1
+                if grid[i][j + 1] == 0:
+                    perimeter += 1
     return perimeter
